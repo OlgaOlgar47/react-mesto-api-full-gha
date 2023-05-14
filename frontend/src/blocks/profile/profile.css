@@ -1,0 +1,15 @@
+.profile {
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+    .profile {
+        flex-direction: column;
+
+    }
+    
+}
+

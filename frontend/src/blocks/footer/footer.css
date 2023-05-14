@@ -1,0 +1,24 @@
+.footer {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #545454;
+    width: calc(100% - 2*200px);
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1100px) {
+    .footer {
+        width: calc(100% - 2*100px);
+    }
+}
+
+@media screen and (max-width: 984px) {
+    .footer {
+        width: calc(100% - 2*140px);
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .footer {
+        width: calc(100% - 2*19px);
+    }
+}

@@ -1,0 +1,10 @@
+.elements__item {
+  width: 282px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  position: relative;
+ 
+}

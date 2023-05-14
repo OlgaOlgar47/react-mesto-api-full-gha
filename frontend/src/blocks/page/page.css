@@ -1,0 +1,15 @@
+.page {
+  background-color: black;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1280px;
+  padding: 45px 0 60px;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (max-width: 568px) {
+    .page {
+        padding: 28px 0 36px;
+    }
+    
+}
