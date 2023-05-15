@@ -14,6 +14,7 @@ class Api {
   getUserData = () => {
     return fetch(this.baseURL + "/users/me", {
       headers: this.headers,
+      credentials: "include",
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -22,6 +23,7 @@ class Api {
   editUserData = (values) => {
     return fetch(this.baseURL + "/users/me", {
       method: "PATCH",
+      credentials: "include",
       headers: this.headers,
       body: JSON.stringify({
         name: values.name,
@@ -35,6 +37,7 @@ class Api {
   changeAvatar = (data) => {
     return fetch(this.baseURL + "/users/me/avatar", {
       method: "PATCH",
+      credentials: "include",
       headers: this.headers,
       body: JSON.stringify({
         avatar: data.avatar,
@@ -47,6 +50,7 @@ class Api {
   getInitialCards = () => {
     return fetch(this.baseURL + "/cards", {
       headers: this.headers,
+      credentials: "include",
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -55,6 +59,7 @@ class Api {
   deleteCard = (id) => {
     return fetch(this.baseURL + "/cards/" + id, {
       method: "DELETE",
+      credentials: "include",
       headers: this.headers,
     }).then((res) => {
       return this._getResponseData(res);
@@ -64,6 +69,7 @@ class Api {
   createCard = (values) => {
     return fetch(this.baseURL + "/cards", {
       method: "POST",
+      credentials: "include",
       headers: this.headers,
       body: JSON.stringify({
         name: values.name,
@@ -77,6 +83,7 @@ class Api {
   likeCard = (id) => {
     return fetch(this.baseURL + "/cards/" + id + "/likes", {
       method: "PUT",
+      credentials: "include",
       headers: this.headers,
     }).then((res) => {
       return this._getResponseData(res);
@@ -86,6 +93,7 @@ class Api {
   deleteLike = (id) => {
     return fetch(this.baseURL + "/cards/" + id + "/likes", {
       method: "DELETE",
+      credentials: "include",
       headers: this.headers,
     }).then((res) => {
       return this._getResponseData(res);
@@ -94,7 +102,7 @@ class Api {
 }
 
 const api = new Api({
-  baseURL: "https://mesto.nomoreparties.co/v1/cohort-59",
+  baseURL: "http://mestocean.nomoredomains.monster",
   headers: {
     authorization: "14108236-2953-4b21-88a6-cac7407c6c52",
     "Content-Type": "application/json",
