@@ -15,7 +15,11 @@ const errorHandler = require('./middlewares/errorHandler');
 mongoose.connect(DATABASE_URL);
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://mestocean.nomoredomains.monster',
+  })
+);
 app.use(cookieParser());
 
 require('dotenv').config();
