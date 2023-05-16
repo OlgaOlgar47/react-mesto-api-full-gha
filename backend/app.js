@@ -17,7 +17,7 @@ mongoose.connect(DATABASE_URL);
 const app = express();
 app.use(
   cors({
-    origin: 'https://mestocean.nomoredomains.monster',
+    origin: '*',
   })
 );
 app.use(cookieParser());
