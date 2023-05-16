@@ -64,8 +64,10 @@ app.post(
   createUser
 );
 
-app.use(auth, userRouter);
-app.use(auth, cardRouter);
+app.use(auth);
+
+app.use(userRouter);
+app.use(cardRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use('*', auth, (req, res) => {
