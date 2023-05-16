@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
@@ -14,7 +15,10 @@ const errorHandler = require('./middlewares/errorHandler');
 mongoose.connect(DATABASE_URL);
 
 const app = express();
+app.use(cors());
 app.use(cookieParser());
+
+require('dotenv').config();
 
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');

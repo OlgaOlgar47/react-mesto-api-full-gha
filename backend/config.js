@@ -1,5 +1,4 @@
 const { PORT = 3000 } = process.env;
-const SECRET_KEY = 'secret';
 const STATUS_BAD_REQUEST = 400;
 const STATUS_UNAUTHORIZED = 401;
 const STATUS_FORBITTEN = 403;
@@ -10,7 +9,6 @@ const DEFAULT_ERROR_MESSAGE = 'На сервере произошла ошибк
 
 module.exports = {
   PORT,
-  SECRET_KEY,
   STATUS_BAD_REQUEST,
   STATUS_UNAUTHORIZED,
   STATUS_FORBITTEN,
