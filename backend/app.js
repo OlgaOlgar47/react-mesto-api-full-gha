@@ -11,6 +11,7 @@ const { PORT } = require('./config');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
+const redirectUnauthorizedToSignin = require('./middlewares/redirect');
 
 mongoose.connect(DATABASE_URL);
 
@@ -40,6 +41,7 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.post(
   '/signin',
+  redirectUnauthorizedToSignin,
   celebrate({
     body: Joi.object().keys({
       email: Joi.string().required().email(),
