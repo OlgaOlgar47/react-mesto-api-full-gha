@@ -37,7 +37,13 @@ const NotFoundError = require('./utils/errors/NotFoundError');
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
 
-app.post(
+const router = express.Router(); // Создаем отдельный маршрутизатор
+
+app.use('/signin', router);
+app.use('/signup', router);
+// Применяем отдельный маршрутизатор для '/signin'
+
+router.post(
   '/signin',
   celebrate({
     body: Joi.object().keys({
@@ -47,7 +53,7 @@ app.post(
   }),
   login
 );
-app.post(
+router.post(
   '/signup',
   celebrate({
     body: Joi.object().keys({
