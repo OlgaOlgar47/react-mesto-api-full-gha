@@ -1,12 +1,9 @@
 import React from "react";
+import Popup from "./Popup";
 
 function ImagePopup({ card, onClose }) {
   return (
-    <div
-      className={`popup popup_type_view-image ${
-        card.link ? "popup_opened" : ""
-      }`}
-    >
+    <Popup onClose={onClose} name="view-image" isOpen={Boolean(card.link)}>
       <figure className="popup__figure">
         <button
           className="popup__close"
@@ -18,7 +15,7 @@ function ImagePopup({ card, onClose }) {
           {card && card.name}
         </figcaption>
       </figure>
-    </div>
+    </Popup>
   );
 }
 

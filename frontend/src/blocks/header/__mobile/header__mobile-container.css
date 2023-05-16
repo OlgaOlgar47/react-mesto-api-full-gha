@@ -1,0 +1,8 @@
+.header__mobile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 27px;
+  min-width: 50vh;
+  border-top: 1px solid rgba(84, 84, 84, 0.7);
+}

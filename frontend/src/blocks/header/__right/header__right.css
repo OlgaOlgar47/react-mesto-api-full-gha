@@ -1,0 +1,10 @@
+.header__right {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  margin-right: 30px;
+}

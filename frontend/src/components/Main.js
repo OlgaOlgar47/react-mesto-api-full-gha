@@ -27,18 +27,18 @@ function Main({
               <div
                 className="profile__avatar"
                 alt="Аватарка"
-                style={{ backgroundImage: `url(${currentUser.avatar})` }}
+                style={{ backgroundImage: `url(${currentUser?.avatar})` }}
               />
             </button>
             <div className="profile__profile-info">
-              <h1 className="profile__name">{currentUser.name}</h1>
+              <h1 className="profile__name">{currentUser?.name}</h1>
               <button
                 className="profile__edit-button"
                 type="button"
                 aria-label="Редактирование данных"
                 onClick={onEditProfile}
               ></button>
-              <p className="profile__profession">{currentUser.about}</p>
+              <p className="profile__profession">{currentUser?.about}</p>
             </div>
           </div>
           <button
@@ -66,6 +66,9 @@ function Main({
           </ul>
         </section>
       </main>
+      <footer className="footer">
+        <p className="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
+      </footer>
     </>
   );
 }

@@ -11,7 +11,6 @@ export default function useValidation() {
   }, [errors]);
 
   const onChange = (e) => {
-    console.log(isValid);
     const { name, value } = e.target;
     setValues((values) => ({ ...values, [name]: value }));
     setErrors((error) => ({ ...error, [name]: e.target.validationMessage }));

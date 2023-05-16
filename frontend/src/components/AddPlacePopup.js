@@ -8,7 +8,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
 
   React.useEffect(() => {
     resetValidation(values, errors);
-  }, [isOpen]);
+  }, [isOpen, errors, resetValidation, values]);
 
   function handleSubmit(e) {
     e.preventDefault();

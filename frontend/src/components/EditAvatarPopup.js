@@ -10,7 +10,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
 
   React.useEffect(() => {
     resetValidation(values, errors);
-  }, [isOpen]);
+  }, [isOpen, errors, values, resetValidation]);
 
   function handleSubmit(e) {
     e.preventDefault();

@@ -10,14 +10,14 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const { values, errors, onChange, setValues, resetValidation, isValid } =
     useValidation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     resetValidation(values, errors);
-  }, [isOpen]);
+  }, [isOpen, values, errors, resetValidation]);
 
   useEffect(() => {
     setValues({
-      name: currentUser.name || "",
-      about: currentUser.about || "",
+      name: currentUser?.name || "",
+      about: currentUser?.about || "",
     });
   }, [currentUser, setValues]);
 

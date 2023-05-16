@@ -1,0 +1,14 @@
+.header__button_type_close {
+  background: transparent url(../../../../images/closeIcon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.header__button_type_close:hover {
+  opacity: 0.6;
+}
