@@ -17,10 +17,9 @@ mongoose.connect(DATABASE_URL);
 const app = express();
 app.use(
   cors({
-    origin: 'https://mestocean.nomoredomains.monster',
+    origin: '*',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-    allowedHeaders: ['Content-type', 'Authorization'],
-    exposedHeaders: ['set-cookie'],
+    allowedHeaders: ['Content-type', 'Authorization'], // exposedHeaders: ['set-cookie'],
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
@@ -64,10 +63,8 @@ app.post(
   createUser
 );
 
-app.use(auth);
-
-app.use(userRouter);
-app.use(cardRouter);
+app.use(auth, userRouter);
+app.use(auth, cardRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use('*', auth, (req, res) => {
