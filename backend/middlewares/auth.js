@@ -8,6 +8,7 @@ const auth = (req, res, next) => {
   const token = req.cookies.jwt; // Получаем токен из куки
 
   if (!token) {
+    res.redirect('/signin');
     throw new UnauthorizedError('Необходима авторизация');
   }
 
