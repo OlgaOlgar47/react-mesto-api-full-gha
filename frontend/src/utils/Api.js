@@ -13,6 +13,7 @@ class Api {
 
   getUserData = () => {
     return fetch(this.baseURL + "/users/me", {
+      method: "GET",
       headers: this.headers,
       credentials: "include",
     }).then((res) => {
@@ -49,6 +50,7 @@ class Api {
 
   getInitialCards = () => {
     return fetch(this.baseURL + "/cards", {
+      method: "GET",
       headers: this.headers,
       credentials: "include",
     }).then((res) => {

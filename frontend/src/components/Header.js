@@ -68,17 +68,17 @@ function navBar(loggedIn, email, onSignOut, showMenu, setShowMenu) {
   return (
     <Routes>
       <Route
-        path="/sign-in"
+        path="/signin"
         element={
-          <Link to="/sign-up" className="header__button">
+          <Link to="/signup" className="header__button">
             Регистрация
           </Link>
         }
       />
       <Route
-        path="/sign-up"
+        path="/signup"
         element={
-          <Link to="/sign-in" className="header__button">
+          <Link to="/signin" className="header__button">
             Войти
           </Link>
         }

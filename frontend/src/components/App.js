@@ -38,7 +38,7 @@ function App() {
     Auth.register(values.email, values.password)
       .then((res) => {
         openPopupInfoSucces();
-        navigate("/sign-in", { replace: true });
+        navigate("/signin", { replace: true });
       })
       .catch((err) => {
         openPopupInfoFail();
@@ -109,7 +109,7 @@ function App() {
     localStorage.removeItem("token");
     setCurrentUser(null);
     setLoggedIn(false);
-    navigate("/sign-in", { replace: true });
+    navigate("/signin", { replace: true });
   };
 
   const handleConfirmPopupClick = (card) => {

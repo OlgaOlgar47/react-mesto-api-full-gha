@@ -14,7 +14,7 @@ function Register(props) {
       errors={errors}
       onChange={onChange}
     >
-      <Link to="/sign-in" className="authorization__span">
+      <Link to="/signin" className="authorization__span">
         Уже зарегистрированы? Войти
       </Link>
     </AuthForm>
