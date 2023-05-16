@@ -231,7 +231,7 @@ function App() {
           <Header onSignOut={handleSignOut} loggedIn={loggedIn} email={email} />
           <Routes>
             <Route
-              path="/sign-up"
+              path="/signup"
               element={
                 <Register
                   onRegister={onRegister}
@@ -242,7 +242,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="/sign-in"
+              path="/signin"
               element={
                 <Login
                   onLogin={onLogin}
