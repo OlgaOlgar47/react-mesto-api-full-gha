@@ -41,7 +41,6 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.post(
   '/signin',
-  redirectUnauthorizedToSignin,
   celebrate({
     body: Joi.object().keys({
       email: Joi.string().required().email(),
@@ -66,8 +65,8 @@ app.post(
   createUser
 );
 
-app.use(auth, userRouter);
-app.use(auth, cardRouter);
+app.use(redirectUnauthorizedToSignin, auth, userRouter);
+app.use(redirectUnauthorizedToSignin, auth, cardRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use('*', auth, (req, res) => {
