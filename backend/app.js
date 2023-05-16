@@ -37,6 +37,9 @@ const NotFoundError = require('./utils/errors/NotFoundError');
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
 
+app.use(auth, userRouter);
+app.use(auth, cardRouter);
+
 app.post(
   '/signin',
   celebrate({
@@ -63,8 +66,6 @@ app.post(
   createUser
 );
 
-app.use(auth, userRouter);
-app.use(auth, cardRouter);
 // eslint-disable-next-line no-unused-vars
 app.use('*', auth, (req, res) => {
   throw new NotFoundError('Page not found');
