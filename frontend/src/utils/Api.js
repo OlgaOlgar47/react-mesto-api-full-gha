@@ -102,9 +102,8 @@ class Api {
 }
 
 const api = new Api({
-  baseURL: "http://mestocean.nomoredomains.monster",
+  baseURL: "http://api.mestocean.nomoredomains.monster",
   headers: {
-    authorization: "14108236-2953-4b21-88a6-cac7407c6c52",
     "Content-Type": "application/json",
   },
 });
