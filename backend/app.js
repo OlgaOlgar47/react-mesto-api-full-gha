@@ -11,7 +11,6 @@ const { PORT } = require('./config');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
-const redirectUnauthorizedToSignin = require('./middlewares/redirect');
 
 mongoose.connect(DATABASE_URL);
 
@@ -65,8 +64,8 @@ app.post(
   createUser
 );
 
-app.use(redirectUnauthorizedToSignin, auth, userRouter);
-app.use(redirectUnauthorizedToSignin, auth, cardRouter);
+app.use(auth, userRouter);
+app.use(auth, cardRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use('*', auth, (req, res) => {

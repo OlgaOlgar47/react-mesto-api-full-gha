@@ -15,7 +15,9 @@ const auth = (req, res, next) => {
   }
 
   if (!token) {
-    throw new UnauthorizedError('Необходима авторизация');
+    // Если отсутствует токен и не находимся на маршруте `/signin` или `/signup`,
+    // то делаем однократное перенаправление на `/signin`
+    return res.redirect('/signin');
   }
 
   let payload;
