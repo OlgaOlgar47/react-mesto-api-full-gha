@@ -83,6 +83,7 @@ class Api {
   };
 
   likeCard = (id) => {
+    console.log(id);
     return fetch(this.baseURL + "/cards/" + id + "/likes", {
       method: "PUT",
       credentials: "include",
@@ -104,7 +105,7 @@ class Api {
 }
 
 const api = new Api({
-  baseURL: "https://api.mestocean.nomoredomains.monster",
+  baseURL: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
   },
