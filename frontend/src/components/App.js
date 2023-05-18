@@ -53,7 +53,7 @@ function App() {
     }
     Auth.authorize(values.email, values.password)
       .then((data) => {
-        if (data.token) {
+        if (data) {
           setValues({ email: "", password: "" });
           handleLogin();
           navigate("/", { replace: true });
@@ -72,7 +72,7 @@ function App() {
         Auth.getContent(token)
           .then((res) => {
             if (res) {
-              setEmail(res.data.email);
+              setEmail(res.email);
               setLoggedIn(true);
               navigate("/", { replace: true });
             }
@@ -150,12 +150,15 @@ function App() {
   };
 
   function handleCardLike(card) {
+    console.log(card._id);
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     (!isLiked ? api.likeCard(card._id) : api.deleteLike(card._id))
       .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
+        setCards((state) => {
+          console.log(state);
+          state.map((c) => (c._id === card._id ? newCard : c));
+        });
+        console.log("Updated state:", cards);
       })
       .catch((error) => {
         console.log(error);
@@ -200,6 +203,7 @@ function App() {
   };
 
   const handleAddPlaceSubmit = (data) => {
+    console.log(data, cards);
     api
       .createCard(data)
       .then((newCard) => {

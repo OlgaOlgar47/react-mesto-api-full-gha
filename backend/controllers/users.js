@@ -29,7 +29,7 @@ const login = (req, res, next) => {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         sameSite: true,
       }); // httpOnly кука с токеном
-      res.status(200).json({ message: 'Login successful!' });
+      res.status(200).json({ token });
     })
     .catch(next);
 };
@@ -41,7 +41,7 @@ const getUserMe = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('User not found');
       }
-      res.status(200).json({ data: user });
+      res.status(200).json(user);
     })
     .catch(next);
 };
@@ -49,7 +49,7 @@ const getUserMe = (req, res, next) => {
 const getUsers = (req, res, next) => {
   User.find()
     .then((users) => {
-      res.status(200).json({ data: users });
+      res.status(200).json(users);
     })
     .catch(next);
 };
@@ -62,7 +62,7 @@ const getUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('User not found');
       }
-      res.status(200).json({ data: user });
+      res.status(200).json(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -90,7 +90,7 @@ const createUser = (req, res, next) => {
       })
     )
     .then((user) => {
-      res.status(201).json({ data: user });
+      res.status(201).json({ user });
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
@@ -118,7 +118,7 @@ const updateUser = (req, res, next) => {
       throw new NotFoundError('User not found');
     })
     .then((user) => {
-      res.status(200).json({ data: user });
+      res.status(200).json(user);
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
@@ -143,7 +143,7 @@ const updateAvatar = (req, res, next) => {
       throw new NotFoundError('User not found');
     })
     .then((user) => {
-      res.status(200).json({ data: user });
+      res.status(200).json(user);
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {

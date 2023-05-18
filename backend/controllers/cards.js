@@ -6,7 +6,7 @@ const ForbiddenError = require('../utils/errors/ForbiddenError');
 const getCards = (req, res, next) => {
   Card.find({}, { __v: 0 })
     .then((cards) => {
-      res.json({ data: cards });
+      res.json(cards);
     })
     .catch(next);
 };
@@ -17,7 +17,7 @@ const createCard = (req, res, next) => {
   return Card.create({ name, link, owner: req.user._id })
     .then((card) => card.populate('owner'))
     .then((card) => {
-      res.status(201).json({ data: card });
+      res.status(201).json(card);
     })
     .catch(next);
 };
@@ -51,7 +51,7 @@ const likeCard = (req, res, next) => {
       throw new NotFoundError('Card not found');
     })
     .then((card) => {
-      res.json({ data: card });
+      res.json(card);
     })
     .catch(next);
 };
@@ -66,7 +66,7 @@ const dislikeCard = (req, res, next) => {
       throw new NotFoundError('Card not found');
     })
     .then((card) => {
-      res.json({ data: card });
+      res.json(card);
     })
     .catch(next);
 };

@@ -50,7 +50,7 @@ function Main({
         </section>
         <section className="elements" aria-label="Сетка фотографий">
           <ul className="elements__list">
-            {cards.map((card) => {
+            {cards?.map((card) => {
               return (
                 <Card
                   key={card._id}
