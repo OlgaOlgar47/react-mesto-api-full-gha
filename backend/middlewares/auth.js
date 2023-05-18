@@ -6,7 +6,6 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 // eslint-disable-next-line consistent-return
 const auth = (req, res, next) => {
   const token = req.cookies.jwt; // Получаем токен из куки
-  console.log(token);
   if (!token) {
     throw new UnauthorizedError('Необходима авторизация');
   }
