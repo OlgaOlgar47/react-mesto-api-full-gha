@@ -105,7 +105,7 @@ class Api {
 }
 
 const api = new Api({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://api.mestocean.nomoredomains.monster",
   headers: {
     "Content-Type": "application/json",
   },
