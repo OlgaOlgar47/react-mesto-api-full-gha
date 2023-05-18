@@ -15,7 +15,6 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   return Card.create({ name, link, owner: req.user._id })
-    .then((card) => card.populate('owner'))
     .then((card) => {
       res.status(201).json(card);
     })
@@ -24,6 +23,8 @@ const createCard = (req, res, next) => {
 
 const deleteCard = (req, res, next) => {
   const { cardId } = req.params;
+
+  console.log(cardId);
 
   Card.findById(cardId)
     .then((card) => {
@@ -36,7 +37,7 @@ const deleteCard = (req, res, next) => {
       return Card.findByIdAndRemove(cardId);
     })
     .then((card) => {
-      res.json({ deletedData: card });
+      res.json(card);
     })
     .catch(next);
 };

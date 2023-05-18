@@ -93,7 +93,7 @@ function App() {
       Promise.all([api.getUserData(), api.getInitialCards()])
         .then(([userData, initialCards]) => {
           setCurrentUser(userData);
-          setCards(initialCards);
+          setCards(initialCards.reverse());
         })
         .catch((err) => {
           console.log(err);
@@ -150,11 +150,9 @@ function App() {
   };
 
   function handleCardLike(card) {
-    console.log(currentUser._id, card.likes);
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     (!isLiked ? api.likeCard(card._id) : api.deleteLike(card._id))
       .then((newCard) => {
-        console.log(newCard);
         setCards((state) => {
           return state.map((c) => (c._id === card._id ? newCard : c));
         });
@@ -202,7 +200,6 @@ function App() {
   };
 
   const handleAddPlaceSubmit = (data) => {
-    console.log(data, cards);
     api
       .createCard(data)
       .then((newCard) => {
@@ -213,6 +210,7 @@ function App() {
         console.log(error);
       });
   };
+
   const ProtectedMain = () => {
     return (
       <Main

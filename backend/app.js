@@ -17,7 +17,7 @@ mongoose.connect(DATABASE_URL);
 const app = express();
 app.use(
   cors({
-    origin: 'https://mestocean.nomoredomains.monster',
+    origin: 'http://localhost:3001',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
     allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
