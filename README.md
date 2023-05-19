@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.94.137
+IP 51.250.94.137
 
 Frontend https://mestocean.nomoredomains.monster
 
